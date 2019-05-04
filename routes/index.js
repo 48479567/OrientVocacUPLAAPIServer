@@ -1,14 +1,14 @@
 const express = require('express'),
   router = express.Router(),
 
-  { getUser } = require('../controllers/get.controllers/user.get'),
+  { getUser, getUsers } = require('../controllers/get.controllers/user.get'),
 
   { postUser } = require('../controllers/post.controllers/user.post')
 
 //get
 router
   .get('/register', (req, res) => { 
-    res.render('register')
+    res.render('register', getUsers)
   })
   .get('/login/user/:id', getUser)
 

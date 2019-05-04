@@ -33,17 +33,17 @@ const mongoose = require('mongoose'),
 
   UserSchema.plugin(uniqueValidator, { message: 'Este Usuario ya existe.' })
 
-  UserSchema.methods.setPassword = (password) => {
+  UserSchema.methods.setPassword = function(password) {
     this.salt = crypto.randomBytes(16).toString('hex')
-    this.hash = crypto.pbkdf2Sync(password, this.salt, 10000, 512, 'sha512').toString('hex')
+    this.hash = crypto.pbkdf2Sync(password, this.salt, 10000, 256, 'sha256').toString('hex') 
   }
 
-  UserSchema.methods.validPassword = (password) => {
-    let hash = crypto.pbkdf2Sync(password, this.salt, 10000, 512, 'sha512').toString('hex')
+  UserSchema.methods.validPassword = function(password) {
+    let hash = crypto.pbkdf2Sync(password, this.salt, 10000, 256, 'sha256').toString('hex')
     return this.hash === hash
   }
 
-  UserSchema.methods.generateJWT = () => {
+  UserSchema.methods.generateJWT = function() {
     let today = new Date(),
       exp = new Date(today)
     exp.setDate(today.getDate() + 60)
@@ -56,7 +56,7 @@ const mongoose = require('mongoose'),
     }, secret)
   }
 
-  UserSchema.methods.toAuthJSON = () => {
+  UserSchema.methods.toAuthJSON = function() {
     return {
       username: this.username,
       token: this.generateJWT(),
