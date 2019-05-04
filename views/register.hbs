@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <link rel="stylesheet" href="/css/login/style.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" />
+
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <h2>Registro de Estudiantes</h2>
+    </div>
+    <br/>
+    <br/>
+    <form action="/register" method="POST">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="fa fa-address-card"></i>
+          </span>
+        </div>
+        <input 
+          type="text" 
+          id="dni" 
+          class="form-control" 
+          name="username" 
+          placeholder="Ingresar DNI o telefono" 
+          maxlength="8"
+          />
+        
+      </div>
+      <br/>
+      <div class="input-group-prepend">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="fa fa-address-card"></i>
+          </span>
+        </div>
+        <input 
+          type="text" 
+          id="dni" 
+          class="form-control" 
+          name="name" 
+          placeholder="nombres completos" 
+          />
+      </div>
+      <br/>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="fa fa-key icon"></i>
+          </span>
+        </div>
+        
+        <input 
+          type="Password" 
+          id="hash" 
+          class="form-control" 
+          name="password" 
+          placeholder="Ingrese Contraseña" 
+          />
+      </div>
+      <br/>
+      <div class="checkbox"></div>
+      <select 
+        id="sucursal" 
+        name="type" 
+        class="form-control">
+        <option value="nothing">Ninguno</option>
+        <option value="normal">Normal</option>
+        <option value="administrator">Administrador</option>
+      </select>
+      <br/>
+      <input type="submit" class="btn btn-success btn-block" value="REGISTRAR" />
+    </form>
+    <br/>
+    <div class="py-4"></div>
+    <a 
+      id="doctoreslink"
+      href="/" 
+      class="btn btn-outline-info btn-sm"
+    >Ir a Ninguno
+    </a>
+    <br/>
+    <br/> 
+    <center>
+      <div style="border:1px solid black;height:1px;width:300px;"></div>
+    </center>
+    <br/>
+    <div class="footer">
+      <p>Contactarse con el Encargado <a href="tel:975810578">Llamar</a></p>
+    </div>
+  <div class="py-4"></div>
+	</div>
+
+  <script src="/js/login/script.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
