@@ -3,8 +3,13 @@ const mongoose = require('mongoose'),
   
   EvaluationSchema = new Schema({
   tests: [String],
-  results: [Number],
-  last: [Number]
+  results: [{
+    code: Number,
+    chord: Boolean
+  }],
+  last: [Number],
+  message: String,
+  
 })
 
 module.exports = mongoose.model('Evaluation', EvaluationSchema, 'evaluation')

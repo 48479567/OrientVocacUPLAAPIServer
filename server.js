@@ -22,17 +22,17 @@ app
     res.header('Access-Control-Allow-Origin', '*')
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE')
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
-    
+
     next()
   })
-  .use(bodyParser.urlencoded({ extended: true }))
+  .use(bodyParser.urlencoded({extended: true}))
   .use(bodyParser.json())
   .use(express.static(path.join(__dirname, 'public')))
 
 // https methods and connections
 
   .get('/', (req, res) => {
-    res.render('index')
+    res.send('Bienvenido')
   })
 
 // all routes
