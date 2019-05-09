@@ -1,19 +1,12 @@
 const User = require('../../models/user.model')
 
 let postUser = (req, res) => { 
-  let { body } = req,
-    newUser = {
-    username: body.username,
-    password: body.password,
-    name: body.name,
-    type: 'student',
-    college: body.college,
-    degree: body.degree,
-    gender: body.gender,
-    evaluation: '5cce37c5c4ec04601b7d13db'
-  }
+  let { body } = req
 
-    savedUser = new User(newUser)
+  body.evaluation = '5cce37c5c4ec04601b7d13db',
+  body.type = 'student'
+
+  let savedUser = new User(body)
 
   savedUser.save()
     .then(user => res.json(user))
