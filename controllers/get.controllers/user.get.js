@@ -2,7 +2,7 @@ const User = require('../../models/user.model'),
   Evaluacion = require('../../models/evaluation.model')
 
 let getDataUser = (req, res) => {
-  let { username } = req.params 
+  let { username } = req.params
   User.findOne({ username: username }).populate('evaluation')
     .then(
       dataUser => {
@@ -12,9 +12,9 @@ let getDataUser = (req, res) => {
     )
 }
 
-let getStudentsByCollege = (req, res) => { 
+let getStudentsByCollege = (req, res) => {
   let { idcollege } = req.params
-  
+
   User.find({ college: idcollege }).populate('evaluation')
     .then(students => res.json(students))
     .catch(err => res.send(err.message))

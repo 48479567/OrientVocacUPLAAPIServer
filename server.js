@@ -6,7 +6,7 @@ const express = require('express'),
   app = express(),
   c = console.log,
   ce = console.error
- 
+
 
 // setters
 app
@@ -18,18 +18,18 @@ app
 // middleware
 
 app
-  .use((req, res, next) => { 
+  .use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*')
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE')
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
 
     next()
   })
-  .use(bodyParser.urlencoded({extended: true}))
+  .use(bodyParser.urlencoded({ extended: true }))
   .use(bodyParser.json())
   .use(express.static(path.join(__dirname, 'public')))
 
-// https methods and connections
+  // https methods and connections
 
   .get('/', (req, res) => {
     res.send('Bienvenido')
@@ -43,8 +43,8 @@ mongoose.Promise = global.Promise
 mongoose.set('useFindAndModify', false)
 
 // Marca para usar el nuevo analizador de cadenas de URL en lugar del actual (en desuso)
-mongoose.connect(app.get('connecturi'), { useCreateIndex: true, useNewUrlParser: true})
-  .then(db => c(`Conectado a la Base de Datos version: ${db.version}` ))
+mongoose.connect(app.get('connecturi'), { useCreateIndex: true, useNewUrlParser: true })
+  .then(db => c(`Conectado a la Base de Datos version: ${db.version}`))
   .catch(err => ce(err))
 
 app.listen(app.get('port'), () => c(`API ejecutandose en el puerto ${app.get('port')}`))

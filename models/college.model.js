@@ -11,7 +11,7 @@ const mongoose = require('mongoose'),
     location: String,
     acronym: String,
     total: Number,
-    
+
   })
 
 module.exports = mongoose.model('College', CollegeSchema, 'college')

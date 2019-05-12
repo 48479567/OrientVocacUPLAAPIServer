@@ -1,10 +1,10 @@
 const User = require('../../models/user.model')
 
-let postUser = (req, res) => { 
+let postUser = (req, res) => {
   let { body } = req
 
   body.evaluation = '5cce37c5c4ec04601b7d13db',
-  body.type = 'student'
+    body.type = 'student'
 
   let savedUser = new User(body)
 
@@ -18,7 +18,7 @@ let postUser = (req, res) => {
     )
 }
 
-let postLogin = (req, res) => { 
+let postLogin = (req, res) => {
   let { body } = req
   User.findOne({ username: body.username })
     .then(user => {
