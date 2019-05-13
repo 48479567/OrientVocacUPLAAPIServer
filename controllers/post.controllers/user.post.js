@@ -20,10 +20,10 @@ let postUser = (req, res) => {
 
 let postLogin = (req, res) => {
   let { body } = req
-  User.findOne({ username: body.username })
+  User.findOne({ username: body.id })
     .then(user => {
       if (user.password != body.password) {
-        return res.json(`No eres ${user.name}`)
+        return res.send(`No eres ${user.name}`)
       }
       return res.json(user)
     })

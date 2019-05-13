@@ -11,7 +11,7 @@ const express = require('express'),
 // setters
 app
   .set('port', process.env.PORT || 3000)
-  .set('connecturi', 'mongodb://localhost/ov_upla')
+  .set('connecturi', 'mongodb+srv://admin:admin@clusterprojects-e96mt.mongodb.net/ov_upla?retryWrites=true' || 'mongodb://localhost/ov_upla')
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'hbs')
 
