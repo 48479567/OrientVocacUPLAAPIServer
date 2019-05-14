@@ -22,10 +22,13 @@ let postLogin = (req, res) => {
   let { body } = req
   User.findOne({ username: body.id })
     .then(user => {
-      if (user.password != body.password) {
-        return res.send(`No eres ${user.name}`)
+      if (user != null) {
+        if (user.password != body.password) {
+          return res.send(`No eres ${user.name}`)
+        }
+        return res.json(user);
       }
-      return res.json(user)
+      return res.send('El Usuario no Existe');
     })
     .catch(err => res.json(err))
 }
