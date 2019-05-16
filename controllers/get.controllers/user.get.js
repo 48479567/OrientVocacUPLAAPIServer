@@ -21,7 +21,12 @@ let getStudentsByCollege = (req, res) => {
 }
 
 let getUsers = (req, res) => {
-  return res.json('buscando alumnos')
+  let { search } = req.params,
+    searchRegex = RegExp(search, 'i')
+
+  User.find({ name: { $regex: searchRegex } })
+    .then(users => res.json(users))
+    .catch(err => res.send(err.message))
 }
 
 

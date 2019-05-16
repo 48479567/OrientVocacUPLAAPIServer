@@ -13,7 +13,7 @@ router
   .get('/home/:username', getDataUser)
   .get('/college', getColleges)
   .get('/college/students/:idcollege', getStudentsByCollege)
-  .get('/users/:name', getUsers)//falta
+  .get('/users/:search', getUsers)//falta
   .get('/user/evaluation/:id', getEvaluation)
 
 //post
