@@ -22,9 +22,9 @@ const mongoose = require('mongoose'),
       type: String,
       required: true,
     },
-    college: {
+    school: {
       type: Schema.Types.ObjectId,
-      ref: 'College'
+      ref: 'School'
     },
     degree: String,
     gender: String,

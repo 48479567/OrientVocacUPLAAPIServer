@@ -1,7 +1,7 @@
 const mongoose = require('mongoose'),
   Schema = mongoose.Schema,
 
-  CollegeSchema = new Schema({
+  SchoolSchema = new Schema({
     name: String,
     code: {
       type: String,
@@ -14,4 +14,4 @@ const mongoose = require('mongoose'),
 
   })
 
-module.exports = mongoose.model('College', CollegeSchema, 'college')
+module.exports = mongoose.model('School', SchoolSchema, 'school')

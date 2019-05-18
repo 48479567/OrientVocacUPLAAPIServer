@@ -1,18 +1,18 @@
 const express = require('express'),
   router = express.Router(),
 
-  { getUsers, getDataUser, getStudentsByCollege } = require('../controllers/get.controllers/user.get'),
-  { getColleges } = require('../controllers/get.controllers/college.get'),
+  { getUsers, getDataUser, getStudentsBySchool } = require('../controllers/get.controllers/user.get'),
+  { getSchools } = require('../controllers/get.controllers/school.get'),
   { getEvaluation } = require('../controllers/get.controllers/evaluation.get'),
 
   { postUser, postLogin } = require('../controllers/post.controllers/user.post'),
-  { postCollege } = require('../controllers/post.controllers/college.post')
+  { postSchool } = require('../controllers/post.controllers/school.post')
 
 //get
 router
   .get('/home/:username', getDataUser)
-  .get('/college', getColleges)
-  .get('/college/students/:idcollege', getStudentsByCollege)
+  .get('/school', getSchools)
+  .get('/school/students/:idschool', getStudentsBySchool)
   .get('/users/:search', getUsers)//falta
   .get('/user/evaluation/:id', getEvaluation)
 
@@ -20,7 +20,7 @@ router
 router
   .post('/login', postLogin)
   .post('/register', postUser)
-  .post('/college', postCollege)
+  .post('/school', postSchool)
 
 
 

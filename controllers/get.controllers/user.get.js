@@ -12,10 +12,10 @@ let getDataUser = (req, res) => {
     )
 }
 
-let getStudentsByCollege = (req, res) => {
-  let { idcollege } = req.params
+let getStudentsBySchool = (req, res) => {
+  let { idschool } = req.params
 
-  User.find({ college: idcollege }).populate('evaluation')
+  User.find({ school: idschool }).populate('evaluation')
     .then(students => res.json(students))
     .catch(err => res.send(err.message))
 }
@@ -33,6 +33,6 @@ let getUsers = (req, res) => {
 module.exports = {
   getDataUser,
   getUsers,
-  getStudentsByCollege,
+  getStudentsBySchool,
 
 }
