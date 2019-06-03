@@ -6,7 +6,9 @@ const express = require('express'),
   { getEvaluation } = require('../controllers/get.controllers/evaluation.get'),
 
   { postUser, postLogin } = require('../controllers/post.controllers/user.post'),
-  { postSchool } = require('../controllers/post.controllers/school.post')
+  { postSchool } = require('../controllers/post.controllers/school.post'),
+
+  { putEvaluation } = require('../controllers/put.controllers/evaluation.put')
 
 //get
 router
@@ -22,6 +24,8 @@ router
   .post('/register', postUser)
   .post('/school', postSchool)
 
+router
+  .put('/student/evaluation', putEvaluation)
 
 
 module.exports = router
